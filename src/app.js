@@ -62,3 +62,23 @@ function display_sidenav(title, body){
     read_note(list_title, body)
   })
 }
+
+//Creating the reading a note section
+
+let reading_area = document.querySelector('.read-note-area')
+
+function read_note(evt, body){
+
+  let note_div = document.createElement('div')
+
+  let note_para = document.createElement('p')
+
+  let close_button = document.createElement('button')
+  close_button.innerHTML = 'X'
+  close_button.className='close_button'
+  note_para.innerHTML = body
+  reading_area.appendChild(note_div)
+  note_div.appendChild(note_para)
+  note_div.appendChild(close_button)
+  close_button.addEventListener('click', () => {close_btn.parentElement.remove()})
+}
