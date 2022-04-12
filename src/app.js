@@ -8,18 +8,27 @@ const notes = [
 
 // Creating Note taking area
 
-let addButton = document.querySelector('i')
+let addbutton = document.querySelector('i')
 
-let writingArea = document.querySelector('.write-note-area')
+let writingarea = document.querySelector('.write-note-area')
 
 let textarea = "<textarea id='note-textarea'></textarea> <button id='save'>Save</button> <button id='cancel_note'>Cancel</button>"
 
 function addnote(evt) {
-  writingArea.insertAdjacentHTML('afterbegin', textarea)
-  let cancel_button = document.querySelector('#cancel_note')
-  let save =  document.querySelector('#save')
-  cancel_button.addEventListener('click', remove_Note)
+  writingarea.insertAdjacentHTML('afterbegin', textarea)
+  let cancelbutton = document.querySelector('#cancel_note')
+  let save = document.querySelector('#save')
+  cancelbutton.addEventListener('click', remove_Note)
   save.addEventListener('click', saveNote)
 }
 
-addButton.addEventListener('click', addnote)
+addbutton.addEventListener('click', addnote)
+
+
+//Creating cancel button 
+
+function remove_note(evt){
+  while (writingarea.firstChild){
+    writingarea.removeChild(writingarea.firstChild)
+  }
+}
